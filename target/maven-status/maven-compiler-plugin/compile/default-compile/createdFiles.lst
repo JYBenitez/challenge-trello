@@ -8,3 +8,4 @@ com\demo\managment\model\TeamEntity.class
 com\demo\managment\model\TeamMemberEntity.class
 com\demo\managment\model\LabelEntity.class
 com\demo\managment\model\CardEntity.class
+com\demo\managment\model\CardLabelEntity.class

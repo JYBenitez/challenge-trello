@@ -24,7 +24,7 @@ public class AssignmentEntity implements AuditEntity {
             updatable = false,
             insertable = false)
     private TeamMemberEntity teamMember;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "cardid",
             referencedColumnName = "cardid",
             updatable = false,

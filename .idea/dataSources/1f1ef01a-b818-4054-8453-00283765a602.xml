@@ -915,317 +915,357 @@ SELECT|sys.sys_config:null
     </user>
     <table id="286" parent="4" name="assignment"/>
     <table id="287" parent="4" name="card"/>
-    <table id="288" parent="4" name="flow_state"/>
-    <table id="289" parent="4" name="label"/>
-    <table id="290" parent="4" name="team"/>
-    <table id="291" parent="4" name="team_member"/>
-    <column id="292" parent="286" name="assignmentid">
+    <table id="288" parent="4" name="card_label"/>
+    <table id="289" parent="4" name="flow_state"/>
+    <table id="290" parent="4" name="label"/>
+    <table id="291" parent="4" name="team"/>
+    <table id="292" parent="4" name="team_member"/>
+    <column id="293" parent="286" name="assignmentid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="293" parent="286" name="cardid">
+    <column id="294" parent="286" name="cardid">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="294" parent="286" name="teammemberid">
+    <column id="295" parent="286" name="teammemberid">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="295" parent="286" name="startdate">
+    <column id="296" parent="286" name="startdate">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="296" parent="286" name="duedate">
+    <column id="297" parent="286" name="duedate">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="297" parent="286" name="creationdate">
+    <column id="298" parent="286" name="creationdate">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="298" parent="286" name="modificationdate">
+    <column id="299" parent="286" name="modificationdate">
       <Position>7</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="299" parent="286" name="user">
+    <column id="300" parent="286" name="user">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="300" parent="286" name="assignmentid_UNIQUE">
+    <index id="301" parent="286" name="assignmentid_UNIQUE">
       <ColNames>assignmentid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="301" parent="286" name="cardid_idx">
+    <index id="302" parent="286" name="cardid_idx">
       <ColNames>cardid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="302" parent="286" name="teammemberid_idx">
+    <index id="303" parent="286" name="teammemberid_idx">
       <ColNames>teammemberid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="303" parent="286" name="PRIMARY">
+    <key id="304" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>assignmentid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="304" parent="286" name="assignmentid_UNIQUE">
+    <key id="305" parent="286" name="assignmentid_UNIQUE">
       <ColNames>assignmentid</ColNames>
       <UnderlyingIndexName>assignmentid_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="305" parent="286" name="cardid">
+    <foreign-key id="306" parent="286" name="cardid">
       <ColNames>cardid</ColNames>
       <RefTableName>card</RefTableName>
       <RefColNames>cardid</RefColNames>
     </foreign-key>
-    <foreign-key id="306" parent="286" name="teammemberid">
+    <foreign-key id="307" parent="286" name="teammemberid">
       <ColNames>teammemberid</ColNames>
       <RefTableName>team_member</RefTableName>
       <RefColNames>teammemberid</RefColNames>
     </foreign-key>
-    <column id="307" parent="287" name="cardid">
+    <column id="308" parent="287" name="cardid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="308" parent="287" name="title">
+    <column id="309" parent="287" name="title">
       <Position>2</Position>
       <DataType>varchar(250)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="309" parent="287" name="description">
+    <column id="310" parent="287" name="description">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="310" parent="287" name="type">
+    <column id="311" parent="287" name="type">
       <Position>4</Position>
       <DataType>varchar(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="311" parent="287" name="labelid">
+    <column id="312" parent="287" name="labelid">
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="312" parent="287" name="creationdate">
+    <column id="313" parent="287" name="creationdate">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="313" parent="287" name="modificationdate">
+    <column id="314" parent="287" name="modificationdate">
       <Position>7</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="314" parent="287" name="user">
+    <column id="315" parent="287" name="user">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="315" parent="287" name="cardid_UNIQUE">
+    <index id="316" parent="287" name="cardid_UNIQUE">
       <ColNames>cardid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="316" parent="287" name="labelid_idx">
+    <index id="317" parent="287" name="labelid_idx">
       <ColNames>labelid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="317" parent="287" name="PRIMARY">
+    <key id="318" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cardid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="318" parent="287" name="cardid_UNIQUE">
+    <key id="319" parent="287" name="cardid_UNIQUE">
       <ColNames>cardid</ColNames>
       <UnderlyingIndexName>cardid_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="319" parent="287" name="labelid">
+    <foreign-key id="320" parent="287" name="labelid">
       <ColNames>labelid</ColNames>
       <RefTableName>label</RefTableName>
       <RefColNames>labelid</RefColNames>
     </foreign-key>
-    <column id="320" parent="288" name="flowstateid">
+    <column id="321" parent="288" name="cardlabelid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="321" parent="288" name="description">
+    <column id="322" parent="288" name="cardid">
       <Position>2</Position>
-      <DataType>varchar(45)|0s</DataType>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="322" parent="288" name="creationdate">
+    <column id="323" parent="288" name="labelid">
       <Position>3</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="323" parent="288" name="modificationdate">
-      <Position>4</Position>
-      <DataType>datetime|0s</DataType>
-    </column>
-    <column id="324" parent="288" name="user">
-      <Position>5</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="325" parent="288" name="flowstateid_UNIQUE">
-      <ColNames>flowstateid</ColNames>
-      <Unique>1</Unique>
+    <index id="324" parent="288" name="card_label___fk_01">
+      <ColNames>cardid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="325" parent="288" name="card_label___fk_02">
+      <ColNames>labelid</ColNames>
       <Type>btree</Type>
     </index>
     <key id="326" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
+      <ColNames>cardlabelid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="327" parent="288" name="card_label___fk_01">
+      <ColNames>cardid</ColNames>
+      <RefTableName>card</RefTableName>
+      <RefColNames>cardid</RefColNames>
+    </foreign-key>
+    <foreign-key id="328" parent="288" name="card_label___fk_02">
+      <ColNames>labelid</ColNames>
+      <RefTableName>label</RefTableName>
+      <RefColNames>labelid</RefColNames>
+    </foreign-key>
+    <column id="329" parent="289" name="flowstateid">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="330" parent="289" name="description">
+      <Position>2</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="331" parent="289" name="creationdate">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="332" parent="289" name="modificationdate">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="333" parent="289" name="user">
+      <Position>5</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="334" parent="289" name="flowstateid_UNIQUE">
+      <ColNames>flowstateid</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="335" parent="289" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>flowstateid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="327" parent="288" name="flowstateid_UNIQUE">
+    <key id="336" parent="289" name="flowstateid_UNIQUE">
       <ColNames>flowstateid</ColNames>
       <UnderlyingIndexName>flowstateid_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="328" parent="289" name="labelid">
+    <column id="337" parent="290" name="labelid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="329" parent="289" name="description">
+    <column id="338" parent="290" name="description">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="330" parent="289" name="creationdate">
+    <column id="339" parent="290" name="creationdate">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="331" parent="289" name="modificationdate">
+    <column id="340" parent="290" name="modificationdate">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="332" parent="289" name="user">
+    <column id="341" parent="290" name="user">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="333" parent="289" name="labelid_UNIQUE">
+    <index id="342" parent="290" name="labelid_UNIQUE">
       <ColNames>labelid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="334" parent="289" name="PRIMARY">
+    <key id="343" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>labelid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="335" parent="289" name="labelid_UNIQUE">
+    <key id="344" parent="290" name="labelid_UNIQUE">
       <ColNames>labelid</ColNames>
       <UnderlyingIndexName>labelid_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="336" parent="290" name="teamid">
+    <column id="345" parent="291" name="teamid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="337" parent="290" name="description">
+    <column id="346" parent="291" name="description">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="290" name="creationdate">
+    <column id="347" parent="291" name="creationdate">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="290" name="modificationdate">
+    <column id="348" parent="291" name="modificationdate">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="340" parent="290" name="user">
+    <column id="349" parent="291" name="user">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="341" parent="290" name="teamid_UNIQUE">
+    <index id="350" parent="291" name="teamid_UNIQUE">
       <ColNames>teamid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="342" parent="290" name="PRIMARY">
+    <key id="351" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>teamid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="343" parent="290" name="teamid_UNIQUE">
+    <key id="352" parent="291" name="teamid_UNIQUE">
       <ColNames>teamid</ColNames>
       <UnderlyingIndexName>teamid_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="344" parent="291" name="teammemberid">
+    <column id="353" parent="292" name="teammemberid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="345" parent="291" name="name">
+    <column id="354" parent="292" name="name">
       <Position>2</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="346" parent="291" name="lastname">
+    <column id="355" parent="292" name="lastname">
       <Position>3</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="291" name="personalid">
+    <column id="356" parent="292" name="personalid">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="291" name="creationdate">
+    <column id="357" parent="292" name="creationdate">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="291" name="modificationdate">
+    <column id="358" parent="292" name="modificationdate">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="350" parent="291" name="user">
+    <column id="359" parent="292" name="user">
       <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="291" name="teamid">
+    <column id="360" parent="292" name="teamid">
       <Position>8</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="352" parent="291" name="teammemberid_UNIQUE">
+    <index id="361" parent="292" name="teammemberid_UNIQUE">
       <ColNames>teammemberid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="353" parent="291" name="teamid_idx">
+    <index id="362" parent="292" name="teamid_idx">
       <ColNames>teamid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="354" parent="291" name="PRIMARY">
+    <key id="363" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>teammemberid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="355" parent="291" name="teammemberid_UNIQUE">
+    <key id="364" parent="292" name="teammemberid_UNIQUE">
       <ColNames>teammemberid</ColNames>
       <UnderlyingIndexName>teammemberid_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="356" parent="291" name="teamid">
+    <foreign-key id="365" parent="292" name="teamid">
       <ColNames>teamid</ColNames>
       <RefTableName>team</RefTableName>
       <RefColNames>teamid</RefColNames>

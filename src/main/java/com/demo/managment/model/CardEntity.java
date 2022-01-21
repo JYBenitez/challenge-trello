@@ -44,18 +44,18 @@ public class CardEntity implements AuditEntity {
     @Column(name="type")
     @Enumerated(EnumType.STRING)
     private CardEntity.Type type;
-/*
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "labelid",
-            referencedColumnName = "labelid",
+    @JoinColumn(name = "cardid",
+            referencedColumnName = "cardid",
             updatable = false,
             insertable = false)
-    private List<LabelEntity> label;*/
-/*
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<CardLabelEntity> labels;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "cardid")
     private AssignmentEntity assignment;
-*/
+
     @Column(name="creationDate")
     private LocalDateTime creationDate;
     @Column(name="modificationDate")
