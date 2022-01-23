@@ -2,7 +2,10 @@ package com.demo.managment.service;
 
 import com.demo.managment.dto.Card;
 import com.demo.managment.exception.CardServiceException;
+import com.demo.managment.exception.CardTypeException;
 import com.demo.managment.mapper.CardMap;
+import com.demo.managment.model.CardEntity;
+import com.demo.managment.repository.AssignmentRepository;
 import com.demo.managment.repository.CardRepository;
 import com.sun.istack.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +20,11 @@ import java.util.List;
 public class CardService {
     @Autowired
     private final CardRepository repository;
+
+    @Autowired
+    private final AssignmentRepository assignmentRepository;
+    @Autowired
+    private final PrepareCardHelper prepareCardHelper;
 
     public List<Card> findAll(){
         List<Card> result = new ArrayList<>();
@@ -47,13 +55,41 @@ public class CardService {
     public Card save(@NotNull final Card source){
 
         try {
-            var persisted = repository.save(CardMap.getInstance().map(source));
+            var input = CardMap.getInstance().map(source);
+            var persisted = persiste(preparer(input) );
             return CardMap.getInstance().map(persisted);
         }
         catch (Exception e){
-            //ToDo: Log
            throw new CardServiceException("Couldn't save card");
         }
+    }
+
+    private CardPersist preparer(CardEntity card){
+        if (null == card.getType()){
+            throw new CardTypeException("Card type can not null");
+        }
+
+        if (CardEntity.Type.BUG.equals(card.getType())){
+           return prepareCardHelper.prepareBug(card);
+        }
+        if (CardEntity.Type.TASK.equals(card.getType())){
+            return prepareCardHelper.prepareTask(card);
+        }
+        else {
+           return prepareCardHelper.prepareIssue(card);
+        }
+    }
+
+    private CardEntity persiste(CardPersist cardPersist){
+        repository.save(cardPersist.getCard());
+        if (null != assignmentRepository){
+            assignmentRepository.save(cardPersist.getAssignment());
+        }
+        return cardPersist.getCard();
+    }
+
+    private void sendToTrello(CardPersist cardPersist){
+
     }
 
     public Card update(@NotNull final Card source) {

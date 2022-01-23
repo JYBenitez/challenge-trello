@@ -19,18 +19,18 @@ public class CardEntity implements AuditEntity {
 
     public enum Type {
 
-        TASK("T"),
-        BUG("B"),
-        ISSUE("I");
+        TASK("TASK"),
+        BUG("BUG"),
+        ISSUE("ISUUE");
 
         private final String val;
 
-        private Type(String val) {
+        Type(String val) {
             this.val = val;
         }
 
         public Type getByName(String name){
-            return Type.valueOf(name);
+            return Type.valueOf(name.toUpperCase());
         }
 
         public String getVal() {
@@ -57,16 +57,11 @@ public class CardEntity implements AuditEntity {
     @Enumerated(EnumType.STRING)
     private CardEntity.Type type;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "cardid",
-            referencedColumnName = "cardid",
-            updatable = false,
-            insertable = false)
-    private List<CardLabelEntity> labels;
+    @Column(name="labels")
+    private String labels;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "cardid")
-    private AssignmentEntity assignment;
+    @Column(name="list")
+    private String list;
 
     @Column(name= "creation_date")
     private LocalDateTime creationDate;

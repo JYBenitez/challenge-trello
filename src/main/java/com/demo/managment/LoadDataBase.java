@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class LoadDataBase {
-    private static final Boolean preloadFlowState = false;
-    private static final Boolean preloadLabel = false;
+   // private static final Boolean preloadFlowState = false;
+    //private static final Boolean preloadLabel = false;
     private static final Boolean preloadTeam = false;
     private static final Boolean preloadTeamMember = false;
     private static final Boolean preloadCard = false;
-    @Bean
+  /*  @Bean
     public CommandLineRunner initFlowState(FlowStateRepository repository){
 
         FlowStateEntity todo = new FlowStateEntity();
@@ -31,28 +31,7 @@ public class LoadDataBase {
         };
     }
 
-
-    @Bean
-    public CommandLineRunner initLabel(LabelRepository repository){
-
-        LabelEntity bug = new LabelEntity();
-        bug.setDescription("bug");
-        LabelEntity maintenance = new LabelEntity();
-        maintenance.setDescription("Maintenance");
-        LabelEntity research = new LabelEntity();
-        research.setDescription("Research");
-        LabelEntity test = new LabelEntity();
-        test.setDescription("Test");
-
-        return args -> {
-            if (Boolean.TRUE.equals(preloadLabel)) {
-                log.info("Preloading " + repository.save(bug));
-                log.info("Preloading " + repository.save(maintenance));
-                log.info("Preloading " + repository.save(research));
-                log.info("Preloading " + repository.save(test));
-            }
-        };
-    }
+*/
     @Bean
     public CommandLineRunner initTeam(TeamRepository repository){
 
