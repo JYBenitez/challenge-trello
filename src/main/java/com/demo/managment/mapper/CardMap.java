@@ -24,6 +24,12 @@ public class CardMap {
     public  CardEntity map(Card source){
         CardEntity target = new CardEntity();
         BeanUtils.copyProperties(source,target);
+        target.setType(CardEntity.Type.valueOf(source.getType()));
+        return target;
+    }
+
+    public  CardEntity map(CardEntity target, Card source){
+        BeanUtils.copyProperties(source,target);
         return target;
     }
 

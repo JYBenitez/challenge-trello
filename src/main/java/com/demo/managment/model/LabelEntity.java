@@ -21,9 +21,9 @@ public class LabelEntity implements AuditEntity {
     @Column(name="description")
     private String description;
 
-    @Column(name="creationDate")
+    @Column(name= "creation_date")
     private LocalDateTime creationDate;
-    @Column(name="modificationDate")
+    @Column(name= "modification_date")
     private LocalDateTime modificationDate;
     @Column(name="user")
     private String user;

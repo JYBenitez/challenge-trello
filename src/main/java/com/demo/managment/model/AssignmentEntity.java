@@ -30,14 +30,14 @@ public class AssignmentEntity implements AuditEntity {
             updatable = false,
             insertable = false)
     private CardEntity card;
-    @Column(name="startDate")
+    @Column(name= "start_date")
     private LocalDate startDate;
-    @Column(name="dueDate")
+    @Column(name= "due_date")
     private LocalDate dueDate;
 
-    @Column(name="creationDate")
+    @Column(name= "creation_date")
     private LocalDateTime creationDate;
-    @Column(name="modificationDate")
+    @Column(name= "modification_date")
     private LocalDateTime modificationDate;
     @Column(name="user")
     private String user;

@@ -1,8 +1,8 @@
 package com.demo.managment.service;
 
 import com.demo.managment.dto.Card;
+import com.demo.managment.exception.CardServiceException;
 import com.demo.managment.mapper.CardMap;
-import com.demo.managment.model.CardEntity;
 import com.demo.managment.repository.CardRepository;
 import com.sun.istack.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor()
 @Service
@@ -32,28 +31,36 @@ public class CardService {
         return result;
     }
 
-    public Optional<Card> findById(@NotNull final Integer id){
+    public Card findById(@NotNull final Integer id){
         var card = repository.findById(id);
         Card result;
         if (card.isPresent()){
             result = CardMap.getInstance().map(card.get());
-            return Optional.of(result);
+            return result;
         }
         else
         {
-            return Optional.empty();
+            throw new CardServiceException("Card not exists cardid: " + id);
         }
     }
 
-    public Optional<Card> persist(@NotNull final Card source){
+    public Card save(@NotNull final Card source){
 
         try {
             var persisted = repository.save(CardMap.getInstance().map(source));
-            return Optional.of(CardMap.getInstance().map(persisted));
+            return CardMap.getInstance().map(persisted);
         }
         catch (Exception e){
             //ToDo: Log
-           return  Optional.empty();
+           throw new CardServiceException("Couldn't save card");
         }
+    }
+
+    public Card update(@NotNull final Card source) {
+            var current = repository.findById(source.getId());
+           return  current.map((card) -> {
+                var persisted = repository.save(CardMap.getInstance().map(card,source));
+               return   CardMap.getInstance().map(persisted);
+            }).orElseThrow(()-> new CardServiceException(""));
     }
 }

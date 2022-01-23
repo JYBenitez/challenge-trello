@@ -23,12 +23,24 @@ public class CardEntity implements AuditEntity {
         BUG("B"),
         ISSUE("I");
 
-        public final String val;
+        private final String val;
 
         private Type(String val) {
             this.val = val;
         }
 
+        public Type getByName(String name){
+            return Type.valueOf(name);
+        }
+
+        public String getVal() {
+            return val;
+        }
+
+        @Override
+        public String toString() {
+            return val;
+        }
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,9 +68,9 @@ public class CardEntity implements AuditEntity {
     @JoinColumn(name = "cardid")
     private AssignmentEntity assignment;
 
-    @Column(name="creationDate")
+    @Column(name= "creation_date")
     private LocalDateTime creationDate;
-    @Column(name="modificationDate")
+    @Column(name= "modification_date")
     private LocalDateTime modificationDate;
     @Column(name="user")
     private String user;

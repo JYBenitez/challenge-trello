@@ -20,20 +20,20 @@ public class TeamMemberEntity implements AuditEntity {
     private Integer id;
     @Column(name="name")
     private String name;
-    @Column(name="lastname")
+    @Column(name= "last_name")
     private String lastName;
-    @Column(name="personalId")
+    @Column(name= "personal_id")
     private String personalId;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "teamid",
             referencedColumnName = "teamid",
-            updatable = false,
-            insertable = false)
+            updatable = true,
+            insertable = true)
     private TeamEntity team;
 
-    @Column(name="creationDate")
+    @Column(name= "creation_date")
     private LocalDateTime creationDate;
-    @Column(name="modificationDate")
+    @Column(name= "modification_date")
     private LocalDateTime modificationDate;
     @Column(name="user")
     private String user;
