@@ -22,6 +22,17 @@ We recommend using [Intellij IDEA](https://www.jetbrains.com/es-es/idea/download
 
 ### Setup
 You'll need setup this keys in `application.properties`
+* trello.api.key: It's the api key that you'll get when configure your trello dashboard
+* trello.token:  It's the token that you'll get when configure your trello account
+* trello.board.id: You should create a new board to its managnment. Into variable, you should identifier of board
+* trello.list.unassignment: This variable identify your list where you wish save your assigment card
+* trello.list.todo: This variable identify your "To-Do" list.
+* trello.label.bug: This variable identify your "Bug" label in the board.
+* trello.label.maintenance: This variable identify your "maintenance" label in the board.
+* trello.label.test: This variable identify your "test" label in the board.
+* trello.label.research: This variable identify your "research" label in the board.
+* trello.mamber.id: This variable identify your member in the board, who'll receive issues.
+
 ```
 trello.api.uri=https://api.trello.com/1/
 trello.api.key=
