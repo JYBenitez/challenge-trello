@@ -7,6 +7,7 @@ import com.demo.managment.mapper.CardMap;
 import com.demo.managment.model.CardEntity;
 import com.demo.managment.repository.AssignmentRepository;
 import com.demo.managment.repository.CardRepository;
+import com.demo.managment.service.integration.trello.TrelloSender;
 import com.sun.istack.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor()
 @Service
@@ -26,6 +28,7 @@ public class CardService {
     @Autowired
     private final PrepareCardHelper prepareCardHelper;
 
+    private final TrelloSender trelloSender;
     public List<Card> findAll(){
         List<Card> result = new ArrayList<>();
         var list = repository.findAll();
@@ -57,6 +60,7 @@ public class CardService {
         try {
             var input = CardMap.getInstance().map(source);
             var persisted = persiste(preparer(input) );
+            sendToTrello(persisted);
             return CardMap.getInstance().map(persisted);
         }
         catch (Exception e){
@@ -82,14 +86,16 @@ public class CardService {
 
     private CardEntity persiste(CardPersist cardPersist){
         repository.save(cardPersist.getCard());
-        if (null != assignmentRepository){
+        if (null != cardPersist.getAssignment()){
             assignmentRepository.save(cardPersist.getAssignment());
         }
         return cardPersist.getCard();
     }
 
-    private void sendToTrello(CardPersist cardPersist){
-
+    private CompletableFuture<Void> sendToTrello(CardEntity cardPersist){
+        return CompletableFuture.runAsync(()->{
+            trelloSender.send(cardPersist);
+        });
     }
 
     public Card update(@NotNull final Card source) {

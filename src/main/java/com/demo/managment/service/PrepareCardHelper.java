@@ -15,25 +15,27 @@ public final class PrepareCardHelper {
     private TeamMemberRepository teamMemberRepository;
 
     public CardPersist prepareIssue(CardEntity issue){
-        issue.setTitle("Issue-#"+SequenceTask.getInstance().getNextValue());
-        issue.setLabels("Error");
+
+        issue.setList("To-Do");
         CardPersist cardPersist = new CardPersist(issue);
+
+        return new CardPersist(issue);
+    }
+
+    public CardPersist prepareBug(CardEntity bug){
+
+        bug.setTitle("Bug-#-"+SequenceTask.getInstance().getNextValue());
+        bug.setLabel("Bug");
+        CardPersist cardPersist = new CardPersist(bug);
 
         var team = teamMemberRepository.findById(1);//default member team to issues
         if (team.isPresent()){
             AssignmentEntity assignment= new AssignmentEntity();
             assignment.setTeamMember(team.get());
-            assignment.setCard(issue);
+            assignment.setCard(bug);
 
             cardPersist.setAssignment(assignment);
         }
-
-        return cardPersist;
-    }
-
-    public CardPersist prepareBug(CardEntity bug){
-
-      bug.setList("To-Do");
         return new CardPersist(bug);
     }
 

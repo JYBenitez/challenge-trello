@@ -58,7 +58,7 @@ public class CardEntity implements AuditEntity {
     private CardEntity.Type type;
 
     @Column(name="labels")
-    private String labels;
+    private String label;
 
     @Column(name="list")
     private String list;
