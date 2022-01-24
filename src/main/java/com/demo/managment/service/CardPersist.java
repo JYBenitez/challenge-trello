@@ -2,7 +2,6 @@ package com.demo.managment.service;
 
 import com.demo.managment.model.AssignmentEntity;
 import com.demo.managment.model.CardEntity;
-import com.demo.managment.model.TeamMemberEntity;
 import lombok.Data;
 
 @Data

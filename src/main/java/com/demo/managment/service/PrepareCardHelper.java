@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Component
 public final class PrepareCardHelper {
-    private PrepareCardHelper prepareCardHelper;
     @Autowired
     private TeamMemberRepository teamMemberRepository;
 

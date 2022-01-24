@@ -1,7 +1,11 @@
 package com.demo.managment;
 
-import com.demo.managment.model.*;
-import com.demo.managment.repository.*;
+import com.demo.managment.model.CardEntity;
+import com.demo.managment.model.TeamEntity;
+import com.demo.managment.model.TeamMemberEntity;
+import com.demo.managment.repository.CardRepository;
+import com.demo.managment.repository.TeamMemberRepository;
+import com.demo.managment.repository.TeamRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -10,28 +14,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class LoadDataBase {
-   // private static final Boolean preloadFlowState = false;
-    //private static final Boolean preloadLabel = false;
     private static final Boolean preloadTeam = false;
     private static final Boolean preloadTeamMember = false;
     private static final Boolean preloadCard = false;
-  /*  @Bean
-    public CommandLineRunner initFlowState(FlowStateRepository repository){
 
-        FlowStateEntity todo = new FlowStateEntity();
-        todo.setDescription("To Do");
-
-        FlowStateEntity unassignment = new FlowStateEntity();
-        unassignment.setDescription("Unassignment");
-        return args -> {
-            if (Boolean.TRUE.equals(preloadFlowState)){
-                log.info("Preloading " + repository.save(todo));
-                log.info("Preloading " + repository.save(unassignment));
-                }
-        };
-    }
-
-*/
     @Bean
     public CommandLineRunner initTeam(TeamRepository repository){
 
@@ -81,7 +67,4 @@ public class LoadDataBase {
             }
         };
     }
-
-
-
 }
