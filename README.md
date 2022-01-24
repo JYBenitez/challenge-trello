@@ -6,7 +6,7 @@ This repo contains my approach to proposal challenge
 * Account in trello
 
 ### Data base Mysql
-You should run script to create model. The script is [here](https://github.com/JYBenitez/challenge-trello/blob/dev/src/main/resources/script/create-data.base#L1)
+You should run script to create model. The script is [here](https://github.com/JYBenitez/challenge-trello/blob/c56e9f3ecee35ed0623871bbff42df93598ed7e3/src/main/resources/script/create-data-base#L1)
 
 ### Trello
 You should create account in trello and get token to call apis. You can see abouat this [here](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/)
