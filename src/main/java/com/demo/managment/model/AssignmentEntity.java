@@ -18,26 +18,20 @@ public class AssignmentEntity implements AuditEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="assignmentid")
     private Integer id;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "teammemberid",
-            referencedColumnName = "teammemberid",
-            updatable = false,
-            insertable = false)
+    @ManyToOne()
+    @JoinColumn(name = "teammemberid")
     private TeamMemberEntity teamMember;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "cardid",
-            referencedColumnName = "cardid",
-            updatable = false,
-            insertable = false)
+    @ManyToOne
+    @JoinColumn(name = "cardid")
     private CardEntity card;
-    @Column(name="startDate")
+    @Column(name= "start_date")
     private LocalDate startDate;
-    @Column(name="dueDate")
+    @Column(name= "due_date")
     private LocalDate dueDate;
 
-    @Column(name="creationDate")
+    @Column(name= "creation_date")
     private LocalDateTime creationDate;
-    @Column(name="modificationDate")
+    @Column(name= "modification_date")
     private LocalDateTime modificationDate;
     @Column(name="user")
     private String user;

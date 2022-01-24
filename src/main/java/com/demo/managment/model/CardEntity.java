@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @EntityListeners(value = {AuditEntityListener.class})
 @Data
@@ -19,16 +18,28 @@ public class CardEntity implements AuditEntity {
 
     public enum Type {
 
-        TASK("T"),
-        BUG("B"),
-        ISSUE("I");
+        TASK("TASK"),
+        BUG("BUG"),
+        ISSUE("ISUUE");
 
-        public final String val;
+        private final String val;
 
-        private Type(String val) {
+        Type(String val) {
             this.val = val;
         }
 
+        public Type getByName(String name){
+            return Type.valueOf(name.toUpperCase());
+        }
+
+        public String getVal() {
+            return val;
+        }
+
+        @Override
+        public String toString() {
+            return val;
+        }
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,21 +55,16 @@ public class CardEntity implements AuditEntity {
     @Column(name="type")
     @Enumerated(EnumType.STRING)
     private CardEntity.Type type;
-/*
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "labelid",
-            referencedColumnName = "labelid",
-            updatable = false,
-            insertable = false)
-    private List<LabelEntity> label;*/
-/*
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "cardid")
-    private AssignmentEntity assignment;
-*/
-    @Column(name="creationDate")
+
+    @Column(name="labels")
+    private String label;
+
+    @Column(name="list")
+    private String list;
+
+    @Column(name= "creation_date")
     private LocalDateTime creationDate;
-    @Column(name="modificationDate")
+    @Column(name= "modification_date")
     private LocalDateTime modificationDate;
     @Column(name="user")
     private String user;

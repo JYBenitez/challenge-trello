@@ -1,0 +1,82 @@
+-- we don't know how to generate root <with-no-name> (class Root) :(
+create table card
+(
+	cardid int auto_increment,
+	title varchar(250) not null,
+	description longtext null,
+	type varchar(5) not null,
+	creation_date datetime not null,
+	modification_date datetime null,
+	user varchar(45) not null,
+	labels varchar(45) null,
+	list varchar(20) null,
+	constraint cardid_UNIQUE
+		unique (cardid)
+);
+
+alter table card
+	add primary key (cardid);
+
+create table team
+(
+	teamid int auto_increment,
+	description varchar(45) not null,
+	creation_date datetime not null,
+	modification_date datetime null,
+	user varchar(45) not null,
+	constraint teamid_UNIQUE
+		unique (teamid)
+);
+
+alter table team
+	add primary key (teamid);
+
+create table team_member
+(
+	teammemberid int auto_increment,
+	name varchar(60) not null,
+	last_name varchar(60) not null,
+	personal_id varchar(45) not null,
+	creation_date datetime not null,
+	modification_date datetime null,
+	user varchar(45) not null,
+	teamid int null,
+	constraint teammemberid_UNIQUE
+		unique (teammemberid),
+	constraint teamid
+		foreign key (teamid) references team (teamid)
+);
+
+create index teamid_idx
+	on team_member (teamid);
+
+alter table team_member
+	add primary key (teammemberid);
+
+create table assignment
+(
+	assignmentid int auto_increment,
+	cardid int not null,
+	teammemberid int not null,
+	start_date datetime null,
+	due_date datetime null,
+	creation_date datetime not null,
+	modification_date datetime null,
+	user varchar(45) not null,
+	constraint assignmentid_UNIQUE
+		unique (assignmentid),
+	constraint cardid
+		foreign key (cardid) references card (cardid),
+	constraint teammemberid
+		foreign key (teammemberid) references team_member (teammemberid)
+);
+
+create index cardid_idx
+	on assignment (cardid);
+
+create index teammemberid_idx
+	on assignment (teammemberid);
+
+alter table assignment
+	add primary key (assignmentid);
+
