@@ -40,11 +40,12 @@ public class LoadDataBase {
         TeamEntity team1 = new TeamEntity();
         team1.setId(1);
 
-        TeamMemberEntity member1 = new TeamMemberEntity();
-        member1.setLastName("Garcia");
-        member1.setName("MArisa");
-        member1.setPersonalId("332323");
-        member1.setTeam(team1);
+        TeamMemberEntity member1 = TeamMemberEntity.builder()
+        .lastName("Garcia")
+        .name("MArisa")
+        .personalId("332323")
+        .team(team1)
+                .build();
 
 
         return args -> {

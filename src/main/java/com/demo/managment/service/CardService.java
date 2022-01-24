@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@RequiredArgsConstructor()
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 public class CardService {
     @Autowired
@@ -27,7 +27,7 @@ public class CardService {
     private final AssignmentRepository assignmentRepository;
     @Autowired
     private final PrepareCardHelper prepareCardHelper;
-
+    @Autowired
     private final TrelloSender trelloSender;
     public List<Card> findAll(){
         List<Card> result = new ArrayList<>();

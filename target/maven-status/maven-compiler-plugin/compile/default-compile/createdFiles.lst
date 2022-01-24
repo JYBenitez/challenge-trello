@@ -1,11 +1,8 @@
 com\demo\managment\ManagmentApplication.class
-com\demo\managment\model\listener\AuditEntityListener.class
-com\demo\managment\model\listener\AuditEntity.class
-com\demo\managment\model\FlowStateEntity.class
 com\demo\managment\model\AssignmentEntity.class
-com\demo\managment\model\CardEntity$Type.class
-com\demo\managment\model\TeamEntity.class
-com\demo\managment\model\TeamMemberEntity.class
-com\demo\managment\model\LabelEntity.class
 com\demo\managment\model\CardEntity.class
-com\demo\managment\model\CardLabelEntity.class
+com\demo\managment\model\listener\AuditEntity.class
+com\demo\managment\model\TeamEntity.class
+com\demo\managment\model\listener\AuditEntityListener.class
+com\demo\managment\model\CardEntity$Type.class
+com\demo\managment\model\TeamMemberEntity.class

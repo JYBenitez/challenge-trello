@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public final class PrepareCardHelper {
     @Autowired
-    private TeamMemberRepository teamMemberRepository;
+    private final TeamMemberRepository teamMemberRepository;
 
     public CardPersist prepareIssue(CardEntity issue){
 
@@ -35,7 +35,7 @@ public final class PrepareCardHelper {
 
             cardPersist.setAssignment(assignment);
         }
-        return new CardPersist(bug);
+        return cardPersist;
     }
 
     public CardPersist prepareTask(CardEntity task)

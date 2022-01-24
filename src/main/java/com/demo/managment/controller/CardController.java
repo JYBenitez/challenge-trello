@@ -25,14 +25,6 @@ public class CardController {
     @GetMapping("/{id}")
     public Card findById(@PathVariable Integer id){
         return service.findById(id);
-      /* if ( null != result)
-       {
-           return ResponseEntity.ok(result);
-       }
-       else
-       {
-           return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-       }*/
     }
 
     @PostMapping("/")

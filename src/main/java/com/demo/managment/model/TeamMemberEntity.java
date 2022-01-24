@@ -2,11 +2,13 @@ package com.demo.managment.model;
 
 import com.demo.managment.model.listener.AuditEntity;
 import com.demo.managment.model.listener.AuditEntityListener;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Builder
 @EntityListeners(value = {AuditEntityListener.class})
 @Data
 @Entity

@@ -71,7 +71,6 @@ public class TrelloSender {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         String uri = String.format("https://api.trello.com/1/lists/%s/cards?key=%s&token=%s",getList(info.getType()),key,token);
         HttpPost post = new HttpPost(uri);
-        //"https://api.trello.com/1/lists/61e4a67330742809dc463add/cards?key=1438c8b24fd26dcbfb57eb08e5ffcbff&token=17900bf7dde7725a8a520a0a8702c4ecc4298f26beeb6e55245f9f314236e4ec");
 
         StringEntity params = null;
         try {
