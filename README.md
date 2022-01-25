@@ -47,6 +47,8 @@ trello.label.test=
 trello.label.research=
 trello.mamber.id=
 ```
+### Preload data base
+To run application is necessary basic information. this is easily created with "LoadDataBase" in main root project
 
 ## Api documentation
 You can see documentation & examples in [here](https://documenter.getpostman.com/view/5634381/UVXqGDqA)
